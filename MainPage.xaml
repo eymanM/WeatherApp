@@ -1,0 +1,81 @@
+﻿<Page
+    x:Class="WeatherApp.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:WeatherApp"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Page.Resources>
+        <Style TargetType="ListViewItem">
+            <Setter Property="FontSize" Value="26"/>
+        </Style>
+    </Page.Resources>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="86*"/>
+            <RowDefinition Height="131*"/>
+            <RowDefinition Height="283*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Image  Source="Assets/ImageWeather2.jpg" Stretch="None" Grid.ColumnSpan="4" RequestedTheme="Dark" Grid.RowSpan="3"/>
+
+        <ListView Name="CitiesListUI" Grid.Column="0" FontSize="22" Grid.Row="0" Grid.RowSpan="3" Loaded="CitiesListUILoading" Tapped="CitiesListUITapped" Margin="20,20,20,0" />
+
+        <TextBox Name="CityInput" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Left" Text="" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="48" Width="300" PlaceholderText="Enter a city" Opacity="0.72" KeyDown="CityInput_Enter" Margin="0,0,0,0"/>
+
+        <Image Name="WeatherIco" Grid.Column="3" HorizontalAlignment="Center" Height="230" VerticalAlignment="Center" Width="230" Stretch="Uniform" Grid.Row="1"/>
+
+        <StackPanel Grid.Column="1" Grid.Row="1" Grid.RowSpan="2"  >
+            <StackPanel.Resources>
+                <Style TargetType="TextBlock">
+                    <Setter Property="Margin" Value="0,40,0,0"/>
+                </Style>
+            </StackPanel.Resources>
+            <TextBlock Text="Temperature" TextWrapping="Wrap" FontSize="28"/>
+            <TextBlock Text="Real feel temperature " TextWrapping="Wrap" FontSize="28"/>
+            <TextBlock Text="Pressure" TextWrapping="Wrap" FontSize="28"/>
+            <TextBlock Text="Wind Speed" TextWrapping="Wrap" FontSize="28"/>
+            <TextBlock Text="Sunrise" TextWrapping="Wrap" FontSize="28"/>
+            <TextBlock Text="Sunset" TextWrapping="Wrap" FontSize="28"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="2" Grid.Row="1" Grid.RowSpan="2"  >
+            <StackPanel.Resources>
+                <Style TargetType="TextBlock">
+                    <Setter Property="Margin" Value="0,40,0,0"/>
+                </Style>
+            </StackPanel.Resources>
+            <TextBlock Name="TemperatureUI" TextWrapping="Wrap" FontSize="28"/>
+            <TextBlock Name="FeelTemperatureUI" TextWrapping="Wrap" FontSize="28"/>
+            <TextBlock Name="PressureUI" TextWrapping="Wrap" FontSize="28"/>
+            <TextBlock Name="WindSpeedUI" TextWrapping="Wrap" FontSize="28"/>
+            <TextBlock Name="SunriseUI" TextWrapping="Wrap" FontSize="28"/>
+            <TextBlock Name="SunsetUI" TextWrapping="Wrap" FontSize="28"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="3" Grid.Row="2" Grid.RowSpan="2" Width="269" VerticalAlignment="Top" HorizontalAlignment="Center"  >
+            <StackPanel.Resources>
+                <Style TargetType="TextBlock">
+                    <Setter Property="Margin" Value="0,40,0,0"/>
+                </Style>
+            </StackPanel.Resources>
+            <TextBlock Name="CityCountryUI" TextWrapping="Wrap" FontSize="28"/>
+            <TextBlock Name="DescUI" TextWrapping="Wrap" FontSize="28"/>
+        </StackPanel>
+        <Button x:Name="ClearCitiesBtn" Content="Clear List" Grid.Row="0" Grid.Column="1" Margin="0,0,0,0" VerticalAlignment="Center" FontSize="36" HorizontalAlignment="Left" Click="ClearCitiesBtn_Click"/>
+        <Button x:Name="MyLocationWeather" Content="Weather for me" Grid.Column="3" FontSize="36" Margin="0,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" Click="MyLocationWeather_Click"/>
+
+
+
+    </Grid>
+</Page>
